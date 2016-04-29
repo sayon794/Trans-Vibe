@@ -10,6 +10,7 @@ import android.view.Display;
 import android.view.WindowManager;
 
 public class DrawingThread extends Thread {
+//public class DrawingThread implements Runnable{
     private final int AMPCHANGEVAR = 10;        //will remove final when speed slider is implemented
     private Canvas canvas;
     private WaveView waveView;
@@ -65,6 +66,11 @@ public class DrawingThread extends Thread {
     }
 
     public void run() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         threadFlag = true;
         while(threadFlag) {
             canvas = waveView.surfaceHolder.lockCanvas();
@@ -76,6 +82,7 @@ public class DrawingThread extends Thread {
                 e.printStackTrace();
             } finally {
                 if(canvas!=null) {
+                    //System.err.println(canvas);
                     waveView.surfaceHolder.unlockCanvasAndPost(canvas);
                 }
             }
@@ -100,7 +107,8 @@ public class DrawingThread extends Thread {
         else if(amp==-maxAmp)
             change=AMPCHANGEVAR;
         drawWaveOnBitmap(Color.BLACK); //Draw current
-        canvas.drawBitmap(bgOptimizer.getBitmap(),0,0,null);
+        if(canvas!=null)
+            canvas.drawBitmap(bgOptimizer.getBitmap(),0,0,null);
     }       //yep, that's it. standing wave, folks. done
 
     private void drawWaveOnBitmap(int color) {
