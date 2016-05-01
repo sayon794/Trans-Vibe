@@ -14,6 +14,8 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
     SurfaceHolder surfaceHolder;
     DrawingThread drawingThread;
     final Handler handler = new Handler();
+
+    //don't call drawingThread.start() here. then it won't work if user home buttons out and comes back in.
     public WaveView(Context context) {
         super(context);
         this.context = context;
@@ -21,9 +23,9 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
         surfaceHolder.addCallback(this);
         //handler.post(new DrawingThread(this,context));
         drawingThread = new DrawingThread(this,context);
-        drawingThread.start();
 
     }
+
     public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
@@ -31,7 +33,6 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
         surfaceHolder.addCallback(this);
         //handler.post(new DrawingThread(this, context));
         drawingThread = new DrawingThread(this,context);
-        drawingThread.start();
 
     }
 
@@ -42,16 +43,24 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
         surfaceHolder.addCallback(this);
         //handler.post(new DrawingThread(this, context));
         drawingThread = new DrawingThread(this,context);
-        drawingThread.start();
 
     }
 
+
+    //Change size of surfaceView here
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        surfaceHolder.setFixedSize(this.getWidth(),this.getHeight()/2);
+    }
+
+    //start thread here
     @Override
     public void surfaceCreated(SurfaceHolder holder) {
         try {
-            //drawingThread.start();
+            drawingThread.start();
         } catch(Exception e) {
-            //restartThread();        //in case thread creation fails
+            restartThread();        //in case thread creation fails
         }
 
     }
@@ -60,7 +69,7 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
         drawingThread.stopThread();
         drawingThread = null;
         drawingThread = new DrawingThread(this,context);
-        //drawingThread.start();
+        drawingThread.start();
     }
 
     @Override

@@ -67,7 +67,7 @@ public class DrawingThread extends Thread {
 
     public void run() {
         try {
-            Thread.sleep(1000);
+            Thread.sleep(100);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -87,11 +87,11 @@ public class DrawingThread extends Thread {
                 }
             }
 
-            /*try {
-                Thread.sleep(17);
+            try {
+                Thread.sleep(3);
             } catch (InterruptedException e) {
                 e.printStackTrace();
-            }*/
+            }
             //lol, sleep
         }
     }
@@ -115,7 +115,7 @@ public class DrawingThread extends Thread {
         for(t=0;t<displayX;t+=.5*scaleratio) {
         //.5 is a placeholder value, wanted to ensure a decent number of pixels were drawn into
             y = amp/scaleratio * Math.sin(freq*t/scaleratio);
-            bgOptimizer.setPixelScaled((int)t,(int)y+300,color,4);
+            bgOptimizer.setPixelScaled((int)t,(int)y+120,color,4);
             //the last param is the length of the square the pixel should represent
             //i hear you ask why use t/scale in the formula but not when drawing
             //because when drawing i'm drawing at the actual pixel

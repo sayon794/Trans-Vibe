@@ -9,14 +9,14 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="team15.com.transvibe.WaveActivity"
-    android:background="#000000">
+    android:background="#FFFFFF">
 
-    <SurfaceView
+    <!--<SurfaceView
         android:id="@+id/notUsedSurfaceview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black"
-        />
+        />-->
     <!--<SeekBar
         android:id="@+id/speedbar"
 
