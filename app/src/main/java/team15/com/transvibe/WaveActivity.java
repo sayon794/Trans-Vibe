@@ -3,6 +3,8 @@ package team15.com.transvibe;
 import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.SurfaceView;
 import android.view.View;
 import android.view.WindowManager;
@@ -18,15 +20,20 @@ public class WaveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_wave);
-        RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
-        waveView = new WaveView(this);
-        layout.addView(waveView);
-
+        initThread();
+        //seekbarFixSpeed();
         //RelativeLayout layout = new RelativeLayout(this);
         //layout.addView(new SurfaceView(this));
         //setContentView(layout); //needs to change, add waveview as a widget to an activity instead
         //waveView = new WaveView(this);
         //layout.addView(waveView);
+    }
+
+    private void initThread(){
+        RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
+        waveView = new WaveView(this);
+        layout.addView(waveView);
+        waveView.setZOrderMediaOverlay(true);
     }
 
     @Override
@@ -45,12 +52,41 @@ public class WaveActivity extends AppCompatActivity {
         }
     }
 
-    public void fixSpeed(View view) {
-        waveView.requestFocus();
-        SeekBar seekbar = (SeekBar) findViewById(R.id.speedbar);
-        int position = seekbar.getProgress();
-        waveView.drawingThread.setSpeed(position);
-        waveView.requestFocus();
+    /*public void seekbarFixSpeed() {
+        final SeekBar seekbar = (SeekBar) findViewById(R.id.speedbar);
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                *//*RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
+                int position = seekBar.getProgress();
+                layout.removeView(waveView);
+                waveView.drawingThread.stopThread();
+                initThread(position);
+                //seekbar.setVisibility(View.VISIBLE);*//*
+                int position = seekBar.getProgress();
+                waveView.drawingThread.setSpeed(position);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }*/
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)){
+            waveView.drawingThread.setSpeedDown();
+        }
+        else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)){
+            waveView.drawingThread.setSpeedUp();
+        }
+        return true;
     }
 
 }

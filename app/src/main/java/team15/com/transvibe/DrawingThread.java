@@ -11,7 +11,7 @@ import android.view.WindowManager;
 
 public class DrawingThread extends Thread {
 //public class DrawingThread implements Runnable{
-    private int AMPCHANGEVAR = 50;        //will remove final when speed slider is implemented
+    private int AMPCHANGEVAR = 10;        //will remove final when speed slider is implemented
     private Canvas canvas;
     private WaveView waveView;
     private Context context;
@@ -31,7 +31,8 @@ public class DrawingThread extends Thread {
     Paint paint;
 
     int speed; //speed of how fast the drawing will take place.
-    int fixedSpeeds[] = {1,2,4,5,10,20,25,50};
+    int fixedSpeeds[] = {0, 1,2,4,5,10,20,25,50};
+    int indexOfFixedSpeeds = 5;
 
     public DrawingThread(WaveView waveView,Context context) {
         super();
@@ -70,7 +71,7 @@ public class DrawingThread extends Thread {
 
     public void run() {
         try {
-            Thread.sleep(100);
+            Thread.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -84,12 +85,11 @@ public class DrawingThread extends Thread {
             } catch(Exception e) {
                 e.printStackTrace();
             } finally {
-                if(canvas!=null) {
+                if (canvas != null) {
                     //System.err.println(canvas);
                     waveView.surfaceHolder.unlockCanvasAndPost(canvas);
                 }
             }
-
             try {
                 Thread.sleep(3);
             } catch (InterruptedException e) {
@@ -127,8 +127,15 @@ public class DrawingThread extends Thread {
         }
     }
 
-    public void setSpeed(int setSpeed){
-        AMPCHANGEVAR = fixedSpeeds[setSpeed];
+    public void setSpeedDown(){
+        if(indexOfFixedSpeeds != 0)
+            indexOfFixedSpeeds--;
+        AMPCHANGEVAR = fixedSpeeds[indexOfFixedSpeeds];
+    }
+    public void setSpeedUp(){
+        if(indexOfFixedSpeeds != 8)
+            indexOfFixedSpeeds++;
+        AMPCHANGEVAR = fixedSpeeds[indexOfFixedSpeeds];
     }
 
 }
