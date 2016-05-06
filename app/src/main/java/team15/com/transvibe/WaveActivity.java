@@ -4,8 +4,10 @@ import android.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.SurfaceView;
+import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
+import android.widget.SeekBar;
 
 public class WaveActivity extends AppCompatActivity {
 
@@ -19,6 +21,7 @@ public class WaveActivity extends AppCompatActivity {
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
         waveView = new WaveView(this);
         layout.addView(waveView);
+
         //RelativeLayout layout = new RelativeLayout(this);
         //layout.addView(new SurfaceView(this));
         //setContentView(layout); //needs to change, add waveview as a widget to an activity instead
@@ -41,4 +44,13 @@ public class WaveActivity extends AppCompatActivity {
             System.err.println(e);
         }
     }
+
+    public void fixSpeed(View view) {
+        waveView.requestFocus();
+        SeekBar seekbar = (SeekBar) findViewById(R.id.speedbar);
+        int position = seekbar.getProgress();
+        waveView.drawingThread.setSpeed(position);
+        waveView.requestFocus();
+    }
+
 }
