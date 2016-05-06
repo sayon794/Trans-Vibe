@@ -86,6 +86,9 @@ public class WaveActivity extends AppCompatActivity {
         else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)){
             waveView.drawingThread.setSpeedUp();
         }
+        else if((keyCode == KeyEvent.KEYCODE_BACK)){
+            onBackPressed();
+        }
         return true;
     }
 
