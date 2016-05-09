@@ -15,7 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".WaveActivity"></activity>
+        <activity android:name=".WaveActivity" />
+        <activity
+            android:name=".input"
+            android:label="@string/title_activity_input"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
