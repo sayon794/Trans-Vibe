@@ -10,16 +10,25 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.content.Intent;
+import android.widget.TextView;
 
 public class WaveActivity extends AppCompatActivity {
 
     WaveView waveView;
+    Double mass,length,tension;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_wave);
+        Intent intent = getIntent();
+        mass = intent.getDoubleExtra("mass", 0.049);
+        length = intent.getDoubleExtra("length", 250);
+        tension = intent.getDoubleExtra("tension", 49);
+        TextView messageView = (TextView)findViewById(R.id.send);
+        messageView.setText(mass.toString());
         initThread();
         //seekbarFixSpeed();
         //RelativeLayout layout = new RelativeLayout(this);
@@ -31,7 +40,7 @@ public class WaveActivity extends AppCompatActivity {
 
     private void initThread(){
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
-        waveView = new WaveView(this);
+        waveView = new WaveView(this,mass,length,tension);
         layout.addView(waveView);
         waveView.setZOrderMediaOverlay(true);
     }

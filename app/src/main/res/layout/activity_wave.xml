@@ -11,6 +11,12 @@
     tools:context="team15.com.transvibe.WaveActivity"
     android:background="#FFFFFF">
 
+    <TextView
+        android:id="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
     <!--<SurfaceView
         android:id="@+id/notUsedSurfaceview"
         android:layout_width="match_parent"

@@ -14,19 +14,23 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
     SurfaceHolder surfaceHolder;
     DrawingThread drawingThread;
     final Handler handler = new Handler();
+    Double mass,length,tension;
 
     //don't call drawingThread.start() here. then it won't work if user home buttons out and comes back in.
-    public WaveView(Context context) {
+    public WaveView(Context context,double m,double l, double t) {
         super(context);
         this.context = context;
         surfaceHolder = getHolder();
         surfaceHolder.addCallback(this);
+        mass=m;
+        length=l;
+        tension=t;
         //handler.post(new DrawingThread(this,context));
-        drawingThread = new DrawingThread(this,context);
+        drawingThread = new DrawingThread(this,context,mass,length,tension);
 
     }
 
-    public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
+    /*public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         this.context = context;
         surfaceHolder = getHolder();
@@ -34,9 +38,9 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
         //handler.post(new DrawingThread(this, context));
         drawingThread = new DrawingThread(this,context);
 
-    }
+    }*/
 
-    public WaveView(Context context, AttributeSet attrs) {
+    /*public WaveView(Context context, AttributeSet attrs) {
         super(context, attrs);
         this.context = context;
         surfaceHolder = getHolder();
@@ -44,7 +48,7 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
         //handler.post(new DrawingThread(this, context));
         drawingThread = new DrawingThread(this,context);
 
-    }
+    }*/
 
 
     //Change size of surfaceView here
@@ -68,7 +72,7 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
     private void restartThread() {
         drawingThread.stopThread();
         drawingThread = null;
-        drawingThread = new DrawingThread(this,context);
+        drawingThread = new DrawingThread(this,context,mass,length,tension);
         drawingThread.start();
     }
 
