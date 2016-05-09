@@ -16,32 +16,12 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
     final Handler handler = new Handler();
 
     //don't call drawingThread.start() here. then it won't work if user home buttons out and comes back in.
-    public WaveView(Context context) {
+    public WaveView(Context context, double mass) {
         super(context);
         this.context = context;
         surfaceHolder = getHolder();
         surfaceHolder.addCallback(this);
         //handler.post(new DrawingThread(this,context));
-        drawingThread = new DrawingThread(this,context);
-
-    }
-
-    public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        this.context = context;
-        surfaceHolder = getHolder();
-        surfaceHolder.addCallback(this);
-        //handler.post(new DrawingThread(this, context));
-        drawingThread = new DrawingThread(this,context);
-
-    }
-
-    public WaveView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.context = context;
-        surfaceHolder = getHolder();
-        surfaceHolder.addCallback(this);
-        //handler.post(new DrawingThread(this, context));
         drawingThread = new DrawingThread(this,context);
 
     }
