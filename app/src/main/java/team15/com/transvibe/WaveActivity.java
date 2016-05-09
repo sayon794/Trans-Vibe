@@ -40,11 +40,7 @@ public class WaveActivity extends AppCompatActivity {
 
     private void initThread(){
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
-<<<<<<< HEAD
-        waveView = new WaveView(this, 100.0);
-=======
         waveView = new WaveView(this,mass,length,tension);
->>>>>>> ddc9101362ba43d05b5af9ff3dde1bd2a90083fc
         layout.addView(waveView);
         waveView.setZOrderMediaOverlay(true);
     }

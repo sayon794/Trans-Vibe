@@ -6,17 +6,6 @@
 
     tools:context="team15.com.transvibe.MainActivity">
 
-<<<<<<< HEAD
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Start"
-        android:id="@+id/button"
-        android:onClick="clickedStarter"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-=======
     <TableLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -89,5 +78,4 @@
                 android:textColor="#35386d" />
         </TableRow>
     </TableLayout>
->>>>>>> ddc9101362ba43d05b5af9ff3dde1bd2a90083fc
 </RelativeLayout>
