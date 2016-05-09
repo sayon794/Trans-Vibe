@@ -34,10 +34,13 @@ public class DrawingThread extends Thread {
     int fixedSpeeds[] = {0, 1,2,4,5,10,20,25,50};
     int indexOfFixedSpeeds = 5;
 
-    public DrawingThread(WaveView waveView,Context context) {
+    public DrawingThread(WaveView waveView,Context context,double m,double l, double t) {
         super();
         this.waveView = waveView;
         this.context = context;
+        len=l;
+        T=t;
+        mass=m;
 
         initialize();
     }
@@ -52,9 +55,9 @@ public class DrawingThread extends Thread {
         displayX = displayDimension.x;
         displayY = displayDimension.y;
 
-        len = 250;
-        T = 49;
-        mass = 0.049;           //hsc-r boi theke value marsi :D
+        //len = 250;
+        //T = 49;
+        //mass = 0.049;           //hsc-r boi theke value marsi :D     ....bhalo korecho :v
         freq = 1/(2*(len/1000))*Math.sqrt(T/mass);
         maxAmp = 100;
         amp = 0;
