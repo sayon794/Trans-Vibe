@@ -113,8 +113,18 @@ public class DrawingThread extends Thread {
         else if(amp==-maxAmp)
             change=AMPCHANGEVAR;
         drawWaveOnBitmap(Color.BLACK); //Draw current
-        if(canvas!=null)
-            canvas.drawBitmap(bgOptimizer.getBitmap(),0,0,null);
+        if(canvas!=null){
+            canvas.drawBitmap(bgOptimizer.getBitmap(), 0, 0, null);
+            Paint textPaint = new Paint();
+            textPaint.setColor(Color.RED);
+            String text = "Frequency: " + freq;
+            textPaint.setTextSize(textPaint.getTextSize() * 2);
+            int xPos = (int)(canvas.getWidth() - textPaint.getTextSize() * text.length()/ 2)/2 ;
+            int yPos = (int)(canvas.getHeight() - textPaint.getTextSize() * 2);
+            canvas.drawText(text, xPos, yPos, textPaint);
+        }
+
+
     }       //yep, that's it. standing wave, folks. done
 
     private void drawWaveOnBitmap(int color) {
