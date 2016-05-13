@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="team15.com.transvibe.Theory">
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:text="Vibration in the stretched string:"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/vibrationinthestretchedstring"
+            />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:textColor="#35386d"
+
+            android:text="\n
+        When a string of mass per unit length (m) under the action of tension; T; is set in to transverse vibration the velocity of the wave propagation through the string is given by\n\n
+        v = T/m\n\n
+
+        In such a vibration of the string the disturbance produced at one fixed end. Travels along the  string and gets reflected back at the other end, since the original wave and reflect wave have the same frequency and amplitude, they superimpose to produce stationary transverse wave.
+        "
+        />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textStyle="bold"
+            android:textSize="24dp"
+            android:text="Laws of transverse vibration of a string:"/>
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/lawsofvibration"
+            />
+
+    </LinearLayout>
+
+</ScrollView>
+</RelativeLayout>

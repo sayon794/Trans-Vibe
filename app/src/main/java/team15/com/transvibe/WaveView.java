@@ -30,32 +30,11 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
 
     }
 
-    /*public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
-        super(context, attrs, defStyleAttr);
-        this.context = context;
-        surfaceHolder = getHolder();
-        surfaceHolder.addCallback(this);
-        //handler.post(new DrawingThread(this, context));
-        drawingThread = new DrawingThread(this,context);
-
-    }*/
-
-    /*public WaveView(Context context, AttributeSet attrs) {
-        super(context, attrs);
-        this.context = context;
-        surfaceHolder = getHolder();
-        surfaceHolder.addCallback(this);
-        //handler.post(new DrawingThread(this, context));
-        drawingThread = new DrawingThread(this,context);
-
-    }*/
-
-
     //Change size of surfaceView here
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        surfaceHolder.setFixedSize(this.getWidth(),this.getHeight()/2);
+        surfaceHolder.setFixedSize(this.getWidth(),this.getHeight());
     }
 
     //start thread here

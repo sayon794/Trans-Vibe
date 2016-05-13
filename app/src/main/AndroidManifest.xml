@@ -19,7 +19,9 @@
         <activity
             android:name=".input"
             android:label="@string/title_activity_input"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".credits" />
+        <activity android:name=".Theory"></activity>
     </application>
 
 </manifest>

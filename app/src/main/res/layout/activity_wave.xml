@@ -11,26 +11,4 @@
     tools:context="team15.com.transvibe.WaveActivity"
     android:background="#FFFFFF">
 
-    <TextView
-        android:id="@+id/send"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-
-    <!--<SurfaceView
-        android:id="@+id/notUsedSurfaceview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black"
-        />-->
-    <!--<SeekBar
-        android:id="@+id/speedbar"
-
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:max="8"
-        android:progress="8"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />-->
 </RelativeLayout>

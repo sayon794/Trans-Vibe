@@ -58,7 +58,8 @@
                 android:background="#76B6F6"
                 android:typeface="serif"
                 android:textSize="33dp"
-                android:textColor="#35386d" />
+                android:textColor="#35386d"
+                android:onClick="onClickTheory"/>
         </TableRow>
         <TableRow
             android:layout_weight="1"
@@ -75,7 +76,8 @@
                 android:textSize="33dp"
                 android:elegantTextHeight="false"
                 android:typeface="serif"
-                android:textColor="#35386d" />
+                android:textColor="#35386d"
+                android:onClick="onClickCredits"/>
         </TableRow>
     </TableLayout>
 </RelativeLayout>
