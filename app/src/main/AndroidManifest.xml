@@ -20,6 +20,11 @@
             android:name=".input"
             android:label="@string/title_activity_input"
             android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".credits"
+            android:label="@string/title_activity_credits"
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>
