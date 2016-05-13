@@ -75,7 +75,9 @@
                 android:textSize="33dp"
                 android:elegantTextHeight="false"
                 android:typeface="serif"
-                android:textColor="#35386d" />
+                android:textColor="#35386d"
+                android:onClick="onClickCredits"
+                android:clickable="true"/>
         </TableRow>
     </TableLayout>
 </RelativeLayout>

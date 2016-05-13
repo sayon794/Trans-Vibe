@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Trans~Vibe</string>
     <string name="title_activity_input">Input</string>
+    <string name="title_activity_credits">Credits</string>
     <string name="send">Send Message</string>
     <string-array name="length_options">
         <item>Meter</item>
