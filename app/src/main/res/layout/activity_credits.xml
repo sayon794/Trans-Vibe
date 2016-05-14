@@ -2,17 +2,78 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:weightSum="1"
+    android:background="@drawable/back">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="HI THERE!"
-
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.27"
-        android:layout_alignParentTop="true"
+        android:text=" Sayontan Chowdhury"
+        android:id="@+id/sayon"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="99dp"
-        android:textSize="20dp" />
+        android:layout_marginTop="30dp"
+
+        android:textColor="#6a75ab"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_below="@+id/team15"
+        android:layout_alignLeft="@+id/maliha"
+        android:layout_alignStart="@+id/maliha"
+        android:typeface="monospace"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Maliha Tashfia Islam"
+        android:id="@+id/maliha"
+        android:layout_below="@+id/sayon"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:typeface="monospace"
+        android:textColor="#3c4a90"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Tahsin Tausif"
+        android:id="@+id/tahsin"
+        android:layout_below="@+id/maliha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:typeface="monospace"
+        android:textColor="#6a75ab"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Pritom Saha"
+        android:id="@+id/pritom"
+        android:layout_below="@+id/tahsin"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:typeface="monospace"
+        android:textColor="#3c4a90"
+        android:textSize="25dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text=" Team 15"
+        android:id="@+id/team15"
+        android:layout_marginTop="120dp"
+        android:textSize="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/tahsin"
+        android:layout_alignStart="@+id/tahsin"
+        android:typeface="monospace"
+        android:textStyle="bold"
+        android:textColor="#080c5c"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
