@@ -34,7 +34,7 @@ public class WaveView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        surfaceHolder.setFixedSize(this.getWidth(),this.getHeight());
+        surfaceHolder.setFixedSize(this.getWidth(),this.getHeight()/2);
     }
 
     //start thread here

@@ -10,5 +10,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="team15.com.transvibe.WaveActivity"
     android:background="#FFFFFF">
-
+    <Button
+        android:id="@+id/buttonPlus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="+"
+        android:layout_alignParentBottom="true"
+        android:layout_toLeftOf="@+id/speedTextView"
+        android:layout_toStartOf="@+id/speedTextView"
+        android:onClick="speedUp"/>
+    <Button
+        android:id="@+id/buttonMinus"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:text="-"
+        android:layout_alignParentBottom="true"
+        android:onClick="speedDown"
+        android:layout_toRightOf="@+id/speedTextView"
+        android:layout_toEndOf="@+id/speedTextView" />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:textSize="24dp"
+        android:gravity="center"
+        android:text="5x"
+        android:id="@+id/speedTextView"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+    <TextView
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:gravity="center"
+        android:text="SPEED"
+        android:layout_above="@+id/buttonMinus"
+        android:layout_alignLeft="@+id/speedTextView"
+        android:layout_alignStart="@+id/speedTextView" />
 </RelativeLayout>
