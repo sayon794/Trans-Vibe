@@ -15,8 +15,7 @@ public class credits extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credits);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
         TextView tv[]=new TextView[5];
         tv[0]= (TextView)findViewById(R.id.sayon);
         tv[1]= (TextView)findViewById(R.id.maliha);
