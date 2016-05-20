@@ -13,6 +13,8 @@ import android.widget.SeekBar;
 import android.content.Intent;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 public class WaveActivity extends AppCompatActivity {
 
     WaveView waveView;
@@ -21,21 +23,13 @@ public class WaveActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_wave);
         Intent intent = getIntent();
         mass = intent.getDoubleExtra("mass", 0.049);
         length = intent.getDoubleExtra("length", 250);
         tension = intent.getDoubleExtra("tension", 49);
-        TextView messageView = (TextView)findViewById(R.id.send);
-        messageView.setText(mass.toString());
         initThread();
-        //seekbarFixSpeed();
-        //RelativeLayout layout = new RelativeLayout(this);
-        //layout.addView(new SurfaceView(this));
-        //setContentView(layout); //needs to change, add waveview as a widget to an activity instead
-        //waveView = new WaveView(this);
-        //layout.addView(waveView);
+
     }
 
     private void initThread(){
@@ -61,44 +55,23 @@ public class WaveActivity extends AppCompatActivity {
         }
     }
 
-    /*public void seekbarFixSpeed() {
-        final SeekBar seekbar = (SeekBar) findViewById(R.id.speedbar);
-        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                *//*RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
-                int position = seekBar.getProgress();
-                layout.removeView(waveView);
-                waveView.drawingThread.stopThread();
-                initThread(position);
-                //seekbar.setVisibility(View.VISIBLE);*//*
-                int position = seekBar.getProgress();
-                waveView.drawingThread.setSpeed(position);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-    }*/
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if ((keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)){
-            waveView.drawingThread.setSpeedDown();
-        }
-        else if ((keyCode == KeyEvent.KEYCODE_VOLUME_UP)){
-            waveView.drawingThread.setSpeedUp();
-        }
-        else if((keyCode == KeyEvent.KEYCODE_BACK)){
+        if((keyCode == KeyEvent.KEYCODE_BACK)){
             onBackPressed();
         }
         return true;
     }
 
+    public void speedUp(View view) {
+        waveView.drawingThread.setSpeedUp();
+        TextView temptextview = (TextView) findViewById(R.id.speedTextView);
+        temptextview.setText(waveView.drawingThread.getIndex() + "x");
+    }
+
+    public void speedDown(View view) {
+        waveView.drawingThread.setSpeedDown();
+        TextView temptextview = (TextView) findViewById(R.id.speedTextView);
+        temptextview.setText(waveView.drawingThread.getIndex() + "x");
+    }
 }

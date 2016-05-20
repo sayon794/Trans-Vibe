@@ -58,7 +58,9 @@ public class DrawingThread extends Thread {
         //len = 250;
         //T = 49;
         //mass = 0.049;           //hsc-r boi theke value marsi :D     ....bhalo korecho :v
-        freq = 1/(2*(len/1000))*Math.sqrt(T/mass);
+        //freq = 1/(2*(len/1000))*Math.sqrt(T/mass);
+        len = 1000;
+        freq = 63;
         maxAmp = 100;
         amp = 0;
 
@@ -113,8 +115,20 @@ public class DrawingThread extends Thread {
         else if(amp==-maxAmp)
             change=AMPCHANGEVAR;
         drawWaveOnBitmap(Color.BLACK); //Draw current
-        if(canvas!=null)
-            canvas.drawBitmap(bgOptimizer.getBitmap(),0,0,null);
+        if(canvas!=null){
+            canvas.drawBitmap(bgOptimizer.getBitmap(), 0, 0, null);
+
+            Paint textPaint1 = new Paint();
+            textPaint1.setColor(Color.BLUE);
+            String text = "Frequency: " + freq;
+            textPaint1.setTextSize(textPaint1.getTextSize() * 2);
+            int xPos = (int)(canvas.getWidth() - textPaint1.getTextSize() * text.length()/ 2)/2 ;
+            int yPos = (int)(canvas.getHeight() - textPaint1.getTextSize() * 2);
+            canvas.drawText(text, xPos, yPos, textPaint1);
+
+        }
+
+
     }       //yep, that's it. standing wave, folks. done
 
     private void drawWaveOnBitmap(int color) {
@@ -134,11 +148,14 @@ public class DrawingThread extends Thread {
         if(indexOfFixedSpeeds != 0)
             indexOfFixedSpeeds--;
         AMPCHANGEVAR = fixedSpeeds[indexOfFixedSpeeds];
+
     }
     public void setSpeedUp(){
         if(indexOfFixedSpeeds != 8)
             indexOfFixedSpeeds++;
         AMPCHANGEVAR = fixedSpeeds[indexOfFixedSpeeds];
     }
-
+    public int getIndex(){
+        return indexOfFixedSpeeds;
+    }
 }
