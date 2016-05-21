@@ -23,6 +23,10 @@ public class credits extends AppCompatActivity {
         tv[3]= (TextView)findViewById(R.id.pritom);
         tv[4]= (TextView)findViewById(R.id.team15);
 
+        Typeface face=Typeface.createFromAsset(getAssets(), "Chunkfive.otf");
+        for(int i=0;i<5;i++)
+            tv[i].setTypeface(face);
+
         Animation translatebu= AnimationUtils.loadAnimation(this, R.anim.bounce);
         for(int i=0;i<4;i++)
             tv[i].startAnimation(translatebu);

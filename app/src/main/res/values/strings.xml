@@ -4,13 +4,13 @@
     <string name="title_activity_credits">Credits</string>
     <string name="send">Send Message</string>
     <string-array name="length_options">
-        <item>Meter</item>
-        <item>Centimeter</item>
         <item>Millimeter</item>
+        <item>Centimeter</item>
+        <item>Meter</item>
     </string-array>
     <string-array name="mass_options">
-        <item>Kilogram/Meter</item>
         <item>Gram/Centimeter</item>
+        <item>Kilogram/Meter</item>
     </string-array>
     <string-array name="tension_options">
         <item>Newton</item>

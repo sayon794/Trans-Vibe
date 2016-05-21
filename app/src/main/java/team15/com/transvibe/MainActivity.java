@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         n[2]=(Button) findViewById(R.id.button3);
         n[3]=(Button) findViewById(R.id.button4);
 
-        Typeface typeface = Typeface.createFromAsset(getAssets(), "Xenotron.ttf");
+        Typeface typeface = Typeface.createFromAsset(getAssets(), "Chunkfive.otf");
         for(int i=0;i<4;i++)
             n[i].setTypeface(typeface);
 
