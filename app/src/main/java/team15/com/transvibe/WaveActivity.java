@@ -29,9 +29,14 @@ public class WaveActivity extends AppCompatActivity {
         length = intent.getDoubleExtra("length", 250);
         tension = intent.getDoubleExtra("tension", 49);
         initThread();
+        showInput();
 
     }
+    private void showInput(){
+        TextView tv = (TextView) findViewById(R.id.inputshow);
+        tv.setText("\n\n\n\nShown in Standard unit(SI unit):\nMass: " + mass + "kg/m\nLength: " + length/1000 + "m\nTension: "+ tension+"N");
 
+    }
     private void initThread(){
         RelativeLayout layout = (RelativeLayout) findViewById(R.id.eidalagbo);
         waveView = new WaveView(this,mass,length,tension);
@@ -60,6 +65,12 @@ public class WaveActivity extends AppCompatActivity {
         if((keyCode == KeyEvent.KEYCODE_BACK)){
             onBackPressed();
         }
+        /*else if(keyCode == KeyEvent.KEYCODE_VOLUME_UP){
+            waveView.drawingThread.increaseFreq();
+        }
+        else if(keyCode == KeyEvent.KEYCODE_VOLUME_DOWN){
+            waveView.drawingThread.decreaseFreq();
+        }*/
         return true;
     }
 

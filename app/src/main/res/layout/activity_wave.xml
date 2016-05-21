@@ -10,6 +10,16 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="team15.com.transvibe.WaveActivity"
     android:background="#FFFFFF">
+    <TextView
+        android:id="@+id/inputshow"
+        android:text="input"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/cyan"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <Button
         android:id="@+id/buttonPlus"
         android:layout_width="50dp"
@@ -44,5 +54,6 @@
         android:text="SPEED"
         android:layout_above="@+id/buttonMinus"
         android:layout_alignLeft="@+id/speedTextView"
-        android:layout_alignStart="@+id/speedTextView" />
+        android:layout_alignStart="@+id/speedTextView"
+        android:id="@+id/textView" />
 </RelativeLayout>

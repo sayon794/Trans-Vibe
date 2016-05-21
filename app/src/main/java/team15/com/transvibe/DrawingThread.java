@@ -34,6 +34,9 @@ public class DrawingThread extends Thread {
     int fixedSpeeds[] = {0, 1,2,4,5,10,20,25,50};
     int indexOfFixedSpeeds = 5;
 
+    int safeFreq[] = {13, 25, 38, 50, 63, 75, 88};
+    double frequency = 0;
+
     public DrawingThread(WaveView waveView,Context context,double m,double l, double t) {
         super();
         this.waveView = waveView;
@@ -58,9 +61,12 @@ public class DrawingThread extends Thread {
         //len = 250;
         //T = 49;
         //mass = 0.049;           //hsc-r boi theke value marsi :D     ....bhalo korecho :v
-        //freq = 1/(2*(len/1000))*Math.sqrt(T/mass);
-        len = 1000;
-        freq = 63;
+        freq = 1/(2*(len/1000))*Math.sqrt(T/mass);
+        frequency = freq;
+
+        modulate();
+        //len = 100;
+        //freq = 45;
         maxAmp = 100;
         amp = 0;
 
@@ -73,7 +79,17 @@ public class DrawingThread extends Thread {
 
         paint = new Paint();
     }
-
+    private void modulate(){
+        for(int i = 1 ; i < safeFreq.length; i++){
+            if(freq >= safeFreq[i-1] && freq <= safeFreq[i] ){
+                freq = safeFreq[i-1];
+                break;
+            }
+            else if(i == safeFreq.length - 1){
+                freq = safeFreq[i];
+            }
+        }
+    }
     public void run() {
         try {
             Thread.sleep(10);
@@ -120,7 +136,7 @@ public class DrawingThread extends Thread {
 
             Paint textPaint1 = new Paint();
             textPaint1.setColor(Color.BLUE);
-            String text = "Frequency: " + freq;
+            String text = "Frequency: " + frequency + "Hz";
             textPaint1.setTextSize(textPaint1.getTextSize() * 2);
             int xPos = (int)(canvas.getWidth() - textPaint1.getTextSize() * text.length()/ 2)/2 ;
             int yPos = (int)(canvas.getHeight() - textPaint1.getTextSize() * 2);
@@ -157,5 +173,11 @@ public class DrawingThread extends Thread {
     }
     public int getIndex(){
         return indexOfFixedSpeeds;
+    }
+    public void increaseFreq(){
+        freq++;
+    }
+    public void decreaseFreq(){
+        freq--;
     }
 }

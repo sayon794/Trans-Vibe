@@ -7,8 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import java.util.Random;
+
 public class MainActivity extends AppCompatActivity {
 
+    double length[] = {500, 250 , 250 , 500 , 500 };
+    double mass[] = {0.02 , 0.018 , 0.0049, 0.0245, 0.016};
+    double tension[] = {50, 58.8 , 49 , 98 , 78.4};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +46,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void onClickCredits(View view){
         Intent intent = new Intent(this, credits.class);
+        startActivity(intent);
+    }
+
+    public void onClickRandom(View view) {
+        Intent intent = new Intent(this, WaveActivity.class);
+        Random r = new Random();
+        int randomNumber = r.nextInt(5);
+        intent.putExtra("mass", mass[randomNumber]);
+        intent.putExtra("length", length[randomNumber]);
+        intent.putExtra("tension", tension[randomNumber]);
         startActivity(intent);
     }
 }
